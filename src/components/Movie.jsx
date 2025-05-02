@@ -6,10 +6,6 @@ function Movie() {
   const { id } = useParams();
   const movie = movies.find(movie => movie.id === Number(id));
 
-  if (!movie) {
-    return <div>Movie not found</div>;
-  }
-
   return (
     <>
       <NavBar />
@@ -17,9 +13,7 @@ function Movie() {
       <p>Time: {movie.time} minutes</p>
       <div>
         {movie.genres.map(genre => (
-          <span key={genre} data-testid="movie-genre">
-            {genre}
-          </span>
+          <span key={genre}>{genre}</span>
         ))}
       </div>
     </>
